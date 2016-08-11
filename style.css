@@ -1,0 +1,22 @@
+/* Styles go here */
+html {
+  font-family:"Signika",sans-serif;
+  /* color: grey; */
+}
+table, th, td {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+th, td {
+  padding: 1em;
+}
+th {
+    background-color: #555;
+    color: white;
+}
+.hi {
+  color: black;
+  font-weight: 500;
+  text-decoration: underline;
+}

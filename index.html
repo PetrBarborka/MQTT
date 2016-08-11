@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <div id="2min">
+      <h1>MQTT in 2 minutes</h1>
+      MQTT is an open source network communication protocol that aims to be
+      lightweight, low overhead and robust against weak and unstable connections.
+      It follows the publish/subscribe design pattern with Clients connecting
+      and subscribing to a Broker which directs the message flow. 
+      It runs on TCP/IP networks using its own architecture of MQTT packets.
+      <br><br>
+      
+      Here is what it looks like at different application levels:
+      <br><br>
+      <table>
+        <tr>
+          <th>Hardware</th>
+          <td>Computer</td>
+          <td>Computer</td>
+        </tr>
+        <tr>
+          <th>Software</th>
+          <td>Client</td>
+          <td>Broker</td>
+        </tr>
+        <tr>
+          <th>Role</th>
+          <td>Publisher/Subscriber</td>
+          <td>Broker</td>
+        </tr>
+      </table>
+      <br><br>
+      As the protocol is open-source, there is many commercial and free 
+      implementations of both clients and brokers with different design 
+      philosophies. The implementation may for example provide advanced security
+      features like TLS, gateways outside of TCP/IP networks or might be
+      especially suited for embedded systems.
+    </div>
+    <div id="basics">
+      <h1>The Basic principle</h1>
+      <h2>The Network</h2>
+      MQTT runs on a network consisting of one or more computers
+      connected in a <span class="hi">TCP/IP</span> network
+      <h2>The Software</h2>
+      Two kinds of programs are running on the network: at least one
+      <span class="hi">Broker</span> and at least two 
+      <span class="hi">Clients</span> are needed for meaningful operation.
+      <br> The Clients publish information to the Broker and the Broker sends
+      them any information that concerns them. They communicate
+      via TCP/IP packets.
+      <h2>Operation</h2>
+      The client <span class="hi">connects</span> to a Broker.
+      <br>The client
+      <span class="hi">subscribes</span> to one or more
+      <span class="hi">Topics</span>. 
+      <br>The client <span class="hi">publishes</span> a message to one of the 
+      Themes. The Broker forwards that message to any Client connected to it and
+      subscribed to that Theme.
+    </div>
+    <div id="packets">
+      <H1>Packets and processes</H1>
+      This section describes the different processes that take place
+      in the MQTT network along with packets that are used.
+      <h2>Connection</h2>
+      <table>
+        <tr>
+          <th>CONNECT</th><th></th>
+        </tr>
+        <tr>
+          <th>attribute</th><th>example</th>
+        </tr>
+        <tr>
+          <th>client Id</th><td>"client01"</td>
+        </tr>
+        <tr>
+          <th>cleanSession</th><td>false</td>
+        </tr>
+        <tr>
+          <th>userName</th><td>"user1"</td>
+        </tr>
+        <tr>
+          <th>password</th><td>"pwd"</td>
+        </tr>
+        <tr>
+          <th>LastWillTopic</th><td>"client01/will"</td>
+        </tr>
+        <tr>
+          <th>LastWillQoS</th><td>2</td>
+        </tr>
+        <tr>
+          <th>LastWillMessage</th><td>"client01died"</td>
+        </tr>
+        <tr>
+          <th>keepAlive</th><td>60</td>
+        </tr>
+      </table>
+      <br>
+      <table>
+        <tr>
+          <th>CONNACK</th><th></th>
+        </tr>
+        <tr>
+          <th>attribute</th><th>example</th>
+        </tr>
+        <tr>
+          <th>sessionPresent</th><td>false</td>
+        </tr>
+        <tr>
+          <th>returnCode</th><td>0</td>
+        </tr>
+      </table>
+      <h2>Subscription</h2>
+      <table>
+        <tr>
+          <th>SUBSCRIBE</th><th></th>
+        </tr>
+        <tr>
+          <th>attribute</th><th>example</th>
+        </tr>
+        <tr>
+          <th>packetId</th><td>33333</td>
+        </tr>
+        <tr>
+          <th>QoS1</th><td>2</td>
+        </tr>
+        <tr>
+          <th>Topic1</th><td>"client5/temperature"</td>
+        </tr>
+        <tr>
+          <th>QoS2</th><td>1</td>
+        </tr>
+        <tr>
+          <th>Topic2</th><td>"client5/humidity"</td>
+        </tr>
+        <tr>
+          <th>...</th><td>...</td>
+        </tr>
+      </table>
+      <br>
+      <table>
+        <tr>
+          <th>SUBACK</th><th></th>
+        </tr>
+        <tr>
+          <th>attribute</th><th>example</th>
+        </tr>
+        <tr>
+          <th>packetId</th><td>33333</td>
+        </tr>
+        <tr>
+          <th>returnCode1</th><td>0</td>
+        </tr>
+        <tr>
+          <th>returnCode2</th><td>0</td>
+        </tr>
+        <tr>
+          <th>...</th><td>...</td>
+        </tr>
+      </table>
+      <h2>Unsubscription</h2>
+      <table>
+        <tr>
+          <th>UNSUBSCRIBE</th><th></th>
+        </tr>
+        <tr>
+          <th>attribute</th><th>example</th>
+        </tr>
+        <tr>
+          <th>packetId</th><td>33334</td>
+        </tr>
+        <tr>
+          <th>Topic1</th><td>"client5/temperature"</td>
+        </tr>
+        <tr>
+          <th>Topic2</th><td>"client5/humidity"</td>
+        </tr>
+        <tr>
+          <th>...</th><td>...</td>
+        </tr>
+      </table>
+      <br>
+      <table>
+        <tr>
+          <th>UNSUBACK</th><th></th>
+        </tr>
+        <tr>
+          <th>attribute</th><th>example</th>
+        </tr>
+        <tr>
+          <th>packetId</th><td>33333</td>
+        </tr>
+        <tr>
+          <th>returnCode1</th><td>0</td>
+        </tr>
+        <tr>
+          <th>returnCode2</th><td>0</td>
+        </tr>
+        <tr>
+          <th>...</th><td>...</td>
+        </tr>
+      </table>
+      <h2>Publishing</h2>
+        <table>
+          <tr>
+            <th>PUBLISH</th><th></th>
+          </tr>
+          <tr>
+            <th>attribute</th><th>example</th>
+          </tr>
+          <tr>
+            <th>packetId</th><td>33335</td>
+          </tr>
+          <tr>
+            <th>topicName</th><td>"client5/temperature"</td>
+          </tr>
+          <tr>
+            <th>QoS</th><td>1</td>
+          </tr>
+          <tr>
+            <th>retainFlag</th><td>1</td>
+          </tr>
+          <tr>
+            <th>payload</th> <td>"the humidity is 50%"</td>
+          </tr>
+          <tr>
+            <th>dupFlag</th> <td>false</td>
+          </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <th>PUBACK</th><th></th>
+          </tr>
+          <tr>
+            <th>packetId</th><td>33335</td>
+          </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <th>PUBREC</th><th></th>
+          </tr>
+          <tr>
+            <th>packetId</th><td>33335</td>
+          </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <th>PUBREL</th><th></th>
+          </tr>
+          <tr>
+            <th>packetId</th><td>33335</td>
+          </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <th>PUBCOMP</th><th></th>
+          </tr>
+          <tr>
+            <th>packetId</th><td>33335</td>
+          </tr>
+        </table>
+      <h2>Keep-alive</h2>
+      <table>
+          <tr>
+            <th>PINGREQ</th><th></th>
+          </tr>
+          <tr>
+            <th>-</th><td>-</td>
+          </tr>
+        </table>
+        <br>
+        <table>
+          <tr>
+            <th>PINGRESP</th><th></th>
+          </tr>
+          <tr>
+            <th>-</th><td>-</td>
+          </tr>
+        </table>
+    </div>
+    <div id="topics">
+      <H1>Topics</H1>
+    </div>
+    <div id="qos">
+      <H1>Quality of Service</H1>
+    </div>
+    <div id="robustness">
+      <H1>Queuing and robustness</H1>
+      <h2>Last will</h2>
+      <h2>Persistent session</h2>
+      <h2>Retained messages</h2>
+    </div>
+    <div id="security">
+      <H1>Security</H1>
+      <h2>TLS & certificates</h2>
+    </div>
+    <div id="implementation">
+      <H1>Implementation</H1>
+    </div>
+  </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
