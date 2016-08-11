@@ -1,8 +1,22 @@
 /* Styles go here */
 html {
   font-family:"Signika",sans-serif;
+  margin: 10%;
+  margin-top: 5%;
   /* color: grey; */
 }
+
+@media screen and (max-width: 400px) {
+    body {
+        margin: 5%;
+    }
+}
+@media screen and (min-width: 900px) {
+    body {
+        margin-right: 40%;
+    }
+}
+
 table, th, td {
   border-collapse: collapse;
   border: 1px solid #ccc;
