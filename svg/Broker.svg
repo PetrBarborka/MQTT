@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   viewBox="0 0 99.999997 99.999997"
+   id="svg7549"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Broker.svg">
+  <defs
+     id="defs7551" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.57"
+     inkscape:cx="38.507286"
+     inkscape:cy="51.560279"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:window-width="1426"
+     inkscape:window-height="739"
+     inkscape:window-x="1360"
+     inkscape:window-y="297"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7554">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-952.36223)">
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 29.460996,952.36017 0.12236883,981.52708 5.0587652e-6,1022.8992 29.166925,1052.2398 l 41.372085,0.1224 29.338611,-29.1689 0.122374,-41.37214 -29.166904,-29.34059 -41.372095,-0.1204 z m 3.935499,9.18152 33.443852,0.0987 23.579453,24.00773 -0.09671,33.85438 -23.719582,23.8657 -33.445832,-0.099 -23.5794544,-24.0077 0.098728,-33.85244 23.7195824,-23.8676 z m 6.224962,15.64924 -14.822281,14.7374 -0.06316,20.90317 14.737407,14.8262 20.903153,0.062 14.824241,-14.7375 0.06124,-20.90508 -14.735426,-14.82425 -20.905124,-0.0612 z"
+       id="path6166" />
+  </g>
+</svg>

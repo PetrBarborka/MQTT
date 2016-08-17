@@ -17,6 +17,10 @@ html {
     }
 }
 
+table {
+  float: left;
+}
+
 table, th, td {
   border-collapse: collapse;
   border: 1px solid #ccc;
@@ -33,4 +37,95 @@ th {
   color: black;
   font-weight: 500;
   text-decoration: underline;
+}
+
+/* animation */
+@import "compass/css3";
+
+#icon_Broker {
+  opacity: 0;
+}
+
+/* arrowhead bottom */
+#marker4846 {
+  opacity: 1;
+}
+
+/* top arrowhead */
+#Arrow1Lend {
+/*   opacity: 1; */
+/*   animation: reveal 1s ease; */
+/*   transformX(-200) */
+}
+
+/* #layer1 {
+	opacity: 0;
+} */
+
+#icon_Broker, #icon_Client, #text_Broker, #text_Client {
+  animation: reveal 2s ease;
+/*   opacity: 0; */
+}
+
+#line_Top {
+  stroke-dasharray: 380;
+  stroke-dashoffset: 380;
+  animation: arrow-run1 4s ease infinite;
+  stroke-dashoffset: 0;
+}
+
+#line_Bottom {
+  stroke-dasharray: 380;
+  stroke-dashoffset: 380;
+  animation: arrow-run2 4s ease infinite;
+  stroke-dashoffset: 0;
+}
+
+#text_PacketTop {
+  opacity: 0;
+  animation: reveal 4s ease;
+  opacity: 1;
+/*   animation-delay: 2s; */
+}
+
+#text_PacketBottom {
+  opacity: 0;
+  animation: reveal-delay 4s ease;
+  opacity: 1;
+}
+
+@keyframes arrow-run1 {
+  	0% { stroke-dashoffset: 380; }
+	 50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes arrow-run2 {
+    0% { stroke-dashoffset: 380; }
+   50% { stroke-dashoffset: 380; }
+	100% { stroke-dashoffset: 0; }
+}
+
+@keyframes soft-flash {
+	0% { opacity: 0; }
+	82.5% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@keyframes reveal {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes reveal-delay {
+	0% { opacity: 0; }
+  50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+#loader {
+/*   border: solid black 2px; */
+/*   -webkit-align-content: center; */
+  align-content: center;
+/*   top: 0; */
 }

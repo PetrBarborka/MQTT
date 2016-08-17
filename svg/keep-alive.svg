@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="600"
+   height="200"
+   viewBox="0 0 600.00001 200"
+   id="svg4578"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="keep-alive.svg">
+  <defs
+     id="defs4580" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="288.30661"
+     inkscape:cy="94.119321"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="1276"
+     inkscape:window-height="755"
+     inkscape:window-x="4"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1"
+     inkscape:snap-grids="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4153"
+       spacingx="10"
+       spacingy="10" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4583">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="obj"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-852.36223)">
+    <path
+       inkscape:connector-curvature="0"
+       id="icon_Client"
+       d="m 39.909502,922.39651 a 29.999994,29.99999 0 0 0 -29.999994,29.99999 29.999994,29.99999 0 0 0 29.999994,30 29.999994,29.99999 0 0 0 29.999998,-30 29.999994,29.99999 0 0 0 -29.999998,-29.99999 z m 0,7.5 a 22.499993,22.49999 0 0 1 22.499998,22.49999 22.499993,22.49999 0 0 1 -22.499998,22.5 22.499993,22.49999 0 0 1 -22.499994,-22.5 22.499993,22.49999 0 0 1 22.499994,-22.49999 z m 0,7.5 a 14.999995,14.999993 0 0 0 -14.999994,14.99999 14.999995,14.999993 0 0 0 14.999994,15 14.999995,14.999993 0 0 0 14.999998,-15 14.999995,14.999993 0 0 0 -14.999998,-14.99999 z"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="line_Top"
+       d="m 90.449109,962.19817 377.055711,-0.0379"
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.12954903;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="line_Bottom"
+       d="m 459.50687,942.4901 -377.0557,0.0936"
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.12954903;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4846)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.50613213px;line-height:125%;font-family:'.Al Bayan PUA';-inkscape-font-specification:'.Al Bayan PUA';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="372.83069"
+       y="936.97412"
+       id="text_PacketBottm"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4556"
+         x="372.83069"
+         y="936.97412"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace">PINGREQ</tspan><tspan
+         sodipodi:role="line"
+         x="372.83069"
+         y="967.60681"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+         id="tspan4278" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30.73646355px;line-height:125%;font-family:'.Al Bayan PUA';-inkscape-font-specification:'.Al Bayan PUA';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="473.85028"
+       y="1061.1504"
+       id="text_Broker"
+       sodipodi:linespacing="125%"
+       transform="scale(1.027791,0.97296045)"><tspan
+         sodipodi:role="line"
+         id="tspan4524"
+         x="473.85028"
+         y="1061.1504">Broker</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.50613213px;line-height:125%;font-family:'.Al Bayan PUA';-inkscape-font-specification:'.Al Bayan PUA';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="89.259377"
+       y="983.44849"
+       id="text_PacketTop"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4560"
+         x="89.259377"
+         y="983.44849"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+         dx="0 0 0 0 -1.414855e-07">PINGRESP</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text_Client"
+       y="892.07147"
+       x="8.2246323"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:34.9526825px;line-height:125%;font-family:'.Al Bayan PUA';-inkscape-font-specification:'.Al Bayan PUA';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="892.07147"
+         x="8.2246323"
+         id="tspan4570"
+         sodipodi:role="line">Client</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="icon_Broker"
+       d="m 519.76856,902.60726 -29.33862,29.1669 -0.12237,41.37204 29.16692,29.3407 41.37208,0.1224 29.33862,-29.169 0.12237,-41.37205 -29.16692,-29.3406 -41.37208,-0.12039 z m 3.93546,9.18152 33.44385,0.0986 23.57946,24.00774 -0.097,33.85437 -23.71962,23.86561 -33.44577,-0.099 -23.57945,-24.0077 0.099,-33.8524 23.71961,-23.8676 z m 6.22501,15.64923 -14.8223,14.7374 -0.0627,20.90315 14.73742,14.82624 20.9031,0.061 14.82432,-14.73743 0.0616,-20.90513 -14.73549,-14.82424 -20.90513,-0.0611 z"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4178"
+       d="m 450.22421,970.96921 31.36707,-8.89246 -31.43908,-9.13922 4.4805,9.04496 z"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.09047812px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.09047812px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 111.44142,933.47081 -31.367075,8.8925 31.439085,9.1392 -4.4805,-9.045 z"
+       id="path4181"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Arrow_template"
+     style="display:none"
+     transform="translate(0,50)">
+    <path
+       transform="translate(0,-902.36223)"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 150.79587,1351.6555 497.47717,1253.3724 150,1152.3622 l 49.52031,99.9685 z"
+       id="path4174"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

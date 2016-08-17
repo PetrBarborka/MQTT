@@ -9,6 +9,12 @@
   <body>
     <div id="2min">
       <h1>MQTT in 2 minutes</h1>
+      <div id="loader-connect" style="width=20%">
+        <br>
+        <img src="svg/overview.svg" alt="MQTT overview of MQTT network">
+        <br>
+        <br>
+      </div>
       MQTT is an open source network communication protocol that aims to be
       lightweight, low overhead and robust against weak and unstable connections.
       It follows the publish/subscribe design pattern with Clients connecting
@@ -35,7 +41,7 @@
           <td>Broker</td>
         </tr>
       </table>
-      <br><br>
+      <br style="clear:left"><br>
       As the protocol is open-source, there is many commercial and free 
       implementations of both clients and brokers with different design 
       philosophies. The implementation may for example provide advanced security
@@ -68,6 +74,14 @@
       This section describes the different processes that take place
       in the MQTT network along with packets that are used.
       <h2>Connection</h2>
+      Once a Client establishes a TCP/IP connection to a Broker, it is required
+      to send a CONNECT packet in a specified timeframe. The CONNECT packet must contain its clientID, information about whether it wishes to continue previously started session and may or may not contain authentification data (username, pwd), the last will, its QoS and ping interval to be used for the keep-alive procedure (in seconds). Once the CONNECT packet is received by the Broker, the Broker must always respond with a CONNACK packet starting whether previous session data is available and a return code for the connection stating whether the connection was accepted or why not (see standard).
+    <div id="loader-connect">
+      <br>
+      <img src="svg/connection.svg" alt="MQTT connection procedure">
+      <br>
+      <br>
+    </div>
       <table>
         <tr>
           <th>CONNECT</th><th></th>
@@ -100,7 +114,6 @@
           <th>keepAlive</th><td>60</td>
         </tr>
       </table>
-      <br>
       <table>
         <tr>
           <th>CONNACK</th><th></th>
@@ -115,8 +128,19 @@
           <th>returnCode</th><td>0</td>
         </tr>
       </table>
+      <br style="clear:left">
+    </div>
+      <br>
       <h2>Subscription</h2>
-      <table>
+      In order to receive messages from other clients, our client first needs to subscribe to a Topic. Topics are a great feature helping MQTT communication stay clear and well managed, see dedicated section. The subscription process is initiated with a SUBSCRIBE packet, that only contains a packetId for verification, a list of topics it wishes to subscribe to and a list of maximum Quality of service levels it wishes for that Topic. This value is a ceiling, so if our client specifies QoS 1 when subscribing to topic "a" and someone sends a message with QoS 2 on that topic, it gets handed to our client with QoS 1. The mandatory response is a SUBACK packet with return codes for each Topic. The standard permits, but doesn't require a procedure authorizing individual clients for individual topics. Some Broker providers, such as HiveMQ, provide such procedures using TLS certificates etc.
+      <div id="loader-subscribe">
+        <br>
+        <img src="svg/subscription.svg" alt="MQTT connection procedure">
+        <br>
+        <br>
+      </div>
+      <div>
+        <table> 
         <tr>
           <th>SUBSCRIBE</th><th></th>
         </tr>
@@ -142,8 +166,7 @@
           <th>...</th><td>...</td>
         </tr>
       </table>
-      <br>
-      <table>
+      <table> 
         <tr>
           <th>SUBACK</th><th></th>
         </tr>
@@ -163,7 +186,15 @@
           <th>...</th><td>...</td>
         </tr>
       </table>
+      <br style="clear:left">
       <h2>Unsubscription</h2>
+      The unsubscription process is analoguous to the subscription procedure.
+      <div id="loader-unsubscribe">
+        <br>
+        <img src="svg/unsubscription.svg" alt="MQTT connection procedure">
+        <br>
+        <br>
+      </div>
       <table>
         <tr>
           <th>UNSUBSCRIBE</th><th></th>
@@ -184,7 +215,6 @@
           <th>...</th><td>...</td>
         </tr>
       </table>
-      <br>
       <table>
         <tr>
           <th>UNSUBACK</th><th></th>
@@ -205,7 +235,36 @@
           <th>...</th><td>...</td>
         </tr>
       </table>
+      <br style="clear:left">
       <h2>Publishing</h2>
+      Message transmission in a MQTT network is called publishing. Client C publishes a message on topic T to the Broker and every other Client connected to that Broker and subscribed to Topic T message gets the message. The PUBLISH packet contains an ID, Topic specification, maximum QoS level, a retain flag which states whether the message should be kept as a last valid value for that topic, the message itself or "payload" and a flag that specifies whether this is the original message or a resend attempt. <br>
+      Publishing procedure varies greatly with QoS: 
+      <ul>
+        <li>QoS 0 means the message is sent once and the sender doesn't care about its fate. </li>
+        <li>Qos 1 means the message is resent any number of
+          times before the recipient confirms reception</li>
+        <li>QoS 2 means both the sender and the receiver double
+          check whether the message was received exactly once </li>
+      </ul>
+      This process works both ways: The Client publishes a message
+      to the Broker and the Broker sends the same message through the same process to the concerned Clients.
+      <div id="loader-publish">
+        <h3>Quality of service 0 - at most once<h3>
+        <br>
+        <img src="svg/publishing_qos0.svg" alt="MQTT connection procedure">
+        <br>
+        <br>
+        <h3>Quality of service 1 - at least once<h3>
+        <br>
+        <img src="svg/publishing.svg" alt="MQTT connection procedure">
+        <br>
+        <br>
+        <h3>Quality of service 2 - exactly once<h3>
+        <br>
+        <img src="svg/publishing_qos2.svg" alt="MQTT connection procedure">
+        <br>
+        <br>
+      </div>
         <table>
           <tr>
             <th>PUBLISH</th><th></th>
@@ -232,7 +291,6 @@
             <th>dupFlag</th> <td>false</td>
           </tr>
         </table>
-        <br>
         <table>
           <tr>
             <th>PUBACK</th><th></th>
@@ -241,7 +299,6 @@
             <th>packetId</th><td>33335</td>
           </tr>
         </table>
-        <br>
         <table>
           <tr>
             <th>PUBREC</th><th></th>
@@ -250,7 +307,6 @@
             <th>packetId</th><td>33335</td>
           </tr>
         </table>
-        <br>
         <table>
           <tr>
             <th>PUBREL</th><th></th>
@@ -259,7 +315,6 @@
             <th>packetId</th><td>33335</td>
           </tr>
         </table>
-        <br>
         <table>
           <tr>
             <th>PUBCOMP</th><th></th>
@@ -268,7 +323,15 @@
             <th>packetId</th><td>33335</td>
           </tr>
         </table>
+        <br style="clear:left">
       <h2>Keep-alive</h2>
+      The keep-alive procedure serves to check whether the client is still available after a longer period of inactivity. The Client specifies the keep-alive interval in seconds in the CONNECT packet (with the ability to disable the procedure entirely) and then if the Broker has not received any packets from the Client for that specified ammount of time, it sends a PINGREQ packet expecting a PINGRESP response. The packets have no contents.
+      <div id="loader-keepalive">
+        <br>
+        <img src="svg/keep-alive.svg" alt="MQTT connection procedure">
+        <br>
+        <br>
+      </div>
       <table>
           <tr>
             <th>PINGREQ</th><th></th>
@@ -277,7 +340,6 @@
             <th>-</th><td>-</td>
           </tr>
         </table>
-        <br>
         <table>
           <tr>
             <th>PINGRESP</th><th></th>
@@ -286,6 +348,7 @@
             <th>-</th><td>-</td>
           </tr>
         </table>
+        <br style="clear:left">
     </div>
     <div id="topics">
       <H1>Topics</H1>
