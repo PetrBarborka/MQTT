@@ -6,8 +6,20 @@
     <script src="script.js"></script>
   </head>
 
+<ul class="menu">
+  <li class="limenu"><a href="#2min">2min</a></li>
+  <li class="limenu"><a href="#basics">Basics</a></li>
+  <li class="limenu"><a href="#packets">Packets</a></li>
+  <li class="limenu"><a href="#topics">Topics</a></li>
+  <li class="limenu"><a href="#qos">QoS</a></li>
+  <li class="limenu"><a href="#robustness">Robustness</a></li>
+  <li class="limenu"><a href="#security">Security</a></li>
+  <li class="limenu"><a href="#sources">Sources</a></li>
+</ul>
+
+<div class="article">
   <body>
-    <div id="2min">
+    <div class="anchor" id="2min">
       <h1>MQTT in 2 minutes</h1>
       <div id="loader-connect" style="width=20%">
         <br>
@@ -47,8 +59,10 @@
       philosophies. The implementation may for example provide advanced security
       features like TLS, gateways outside of TCP/IP networks or might be
       especially suited for embedded systems.
+      <br><br>
+      For more information keep on reading and check out the <a href="index.html#sources">sources section</a>
     </div>
-    <div id="basics">
+    <div class="anchor" id="basics">
       <h1>The Basic principle</h1>
       <h2>The Network</h2>
       MQTT runs on a network consisting of one or more computers
@@ -69,7 +83,7 @@
       Themes. The Broker forwards that message to any Client connected to it and
       subscribed to that Theme.
     </div>
-    <div id="packets">
+    <div class="anchor" id="packets">
       <H1>Packets and processes</H1>
       This section describes the different processes that take place
       in the MQTT network along with packets that are used.
@@ -126,6 +140,20 @@
         </tr>
         <tr>
           <th>returnCode</th><td>0</td>
+        </tr>
+      </table>
+      <br style="clear:left">
+      To terminate the connection gracefully, the Client has to let the Broker know it's disconnecting willingly and not as a result of some kind of error. That is what the
+      DISCONNECT packet is for. It requires no response. Upon graceful disconnection, the Will message of the Client will be removed from the Broker unsent.
+      <table>
+        <tr>
+          <th>DISCONNECT</th><th></th>
+        </tr>
+        <tr>
+          <th>attribute</th><th>example</th>
+        </tr>
+        <tr>
+          <th>-</th><td>-</td>
         </tr>
       </table>
       <br style="clear:left">
@@ -350,25 +378,71 @@
         </table>
         <br style="clear:left">
     </div>
-    <div id="topics">
+    <div class="anchor" id="topics">
       <H1>Topics</H1>
+      Topics is are an important, perhaps defining feature of MQTT. A Topic is defined for each published message and the other clients only get that message if they have previosly subscribed to that Topic. 
+      <br><br>
+      They are defined as a string and MQTT recognizes a path hierarchy divided by a slash as in "root/child/grandchild". There are also two wildcard characters that can be put anywhere in the Topic string: "+" is a single level wildcard, while "#" is a multilevel wildcard matching any path downstream. For example: 
+      <br><br>
+      <table>
+        <tr> <th>path</th><th>matches/doesn't match</th><th></th> </tr>
+        <tr> <th> house/+/temperature </th><td class=yes> house/kitchen/temperature </td> <td class=no> house/kitchen/fridge/temperature </td> </tr>
+        <tr> <th> house/#/temperature </th> <td class=yes> house/kitchen/temperature </td> <td class=yes> house/kitchen/fridge/temperature </td> </tr>
+      </table>
+      <br style="clear:left;">
+      <br><br>
+      While the wildcards techicaly permit to listen to the "#" Topic, meaning they get any message that goes through the Broker, it is greatly discouraged even for debugging purposes (which are beter served via debugging applications). Quite the opposite: it is encouraged to create as many Topics and Topic levels as possible delivering every message only to clients that have to have it.
+      <br><br>
+      There are no hard guidelines to naming Topics with one exception: the Topics beginning with "$" are so called system topics. They are used by the Broker to publish system information and the Clients are not allowed to publish in them. They are not exactly defined in the standard and their contents rely on the Broker implementation. One example would be the <a href="https://github.com/mqtt/mqtt.github.io/wiki/SYS-Topics">HiveMQ implemenation</a>, that includes for example:
+
+      <ul>
+        <li style="float:none;">$SYS/broker/clients/connected</li>
+        <li>$SYS/broker/clients/disconnected</li>
+        <li>$SYS/broker/clients/total</li>
+        <li>$SYS/broker/messages/sent</li>
+        <li>$SYS/broker/uptime</li>
+      </ul>
+      <br style="clear:left">
+
+      A freshly connected Client won't receive any messages at all. The Topics are created ad hoc on the first mention - no separate definition needed.
     </div>
-    <div id="qos">
+    <div class="anchor" id="qos">
       <H1>Quality of Service</H1>
+      MQTT Quality of Service is a mechanism that allows Clients to trade network traffic volume and performance load for reliability of service. It comes in three levels: 0, 1 and 2. The desired QoS is specified with each PUBLISH package and that level is used to send the message to the Broker. That same level is used to send the message Broker->Client, unless the Client has specified lower maximum QoS for that theme when subscribing to it.<br> Short version: we have a QoS level specified in SUBSCRIBE and another one in PUBLISH. The lower number is used.
+      <br><br>
+      The different Quality of Service levels were already described in the section dedicated to the PUBLISH packet. Once more:
+      <ul>
+        <li><span class=hi>QoS 0, or "at most once"</span> means the message is sent once and the sender doesn't care about its fate. </li>
+        <li><span class=hi>Qos 1, or "at least once"</span> means the message is resent any number of
+          times before the recipient confirms reception</li>
+        <li><span class=hi>QoS 2, or "exactly once"</span> means both the sender and the receiver double
+          check whether the message was received exactly once </li>
+      </ul>
     </div>
-    <div id="robustness">
+    <div class="anchor" id="robustness">
       <H1>Queuing and robustness</H1>
+      MQTT employs three other mechanisms to compensate for unreliable networks:
       <h2>Last will</h2>
+      Upon connection, the Client is allowed, but not required to specify a message and a Topic to use when the Broker finds the Client unresponsive, meaning the Client probably disconnected ungracefully without sending the DISCONNECT packet, so the Broker can let everyone concerned know that the disconnected Client is no longer listening.
       <h2>Persistent session</h2>
+      If a Persistent session is enabled for a Clients connection, the Broker will remember all of its subscriptions and queue all its messages until it comes back. Upon reconnection, the Client specifies again whether it wants to continue the persistent session and it can also delete the stored data with a cleanSession flag. If it wishes to continue, the Broker lets it know whether there is a previous session to continue with the sessionPresent flag of the CONNACK package. 
       <h2>Retained messages</h2>
+      Since the period between messages can get very long in MQTT, a newly subscribed Client can wait for a long time before it gets a first message on that Topic. Because of that situation, publishing client can mark any message as "retained" indicating that the Broker should store its contents as a "last good value". That way, when a new subscriber comes to a Topic, it gets this message without anyone publishing anything. 
     </div>
-    <div id="security">
+    <div class="anchor" id="security">
       <H1>Security</H1>
-      <h2>TLS & certificates</h2>
+      By default, the MQTT standard only includes rules for authentification of clients using username and password transmitted in plain text form. It defines mechanisms for refusing connection or access to specific Topic, but doesn't specify how should the authentification and authorization take place. 
+      <br>
+      This leaves security mostly up to implementation with some Client/Broker providers specializing in this field such as HiveMQ that provides means of authentification and authorization with TLS certificates on sides of both Client and Broker as well as a plugin interface for writing custom validation functions that serve as event handlers for specific situation (connecting, subscribing, publishing etc.). Deploying a secure network is definitely worth considering.
     </div>
-    <div id="implementation">
+    <div class="anchor" id="sources">
+      <H1>Sources</H1>
+      This report mostly consists of information gathered from HiveMQ series <a href="http://www.hivemq.com/mqtt-essentials/">MQTT essentials</a> and <a href="http://www.hivemq.com/mqtt-security-fundamentals/">MQTT security fundamentals</a>. Those provide the basics in quite digestable and easy to read form. The definitive guide on MQTT is of course the <a href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718111">standard itself</a>.
+    </div>
+<!--     <div id="implementation">
       <H1>Implementation</H1>
-    </div>
+    </div> -->
+  </div> <!-- class="article" -->
   </body>
 
 </html>
