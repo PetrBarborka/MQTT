@@ -7,14 +7,16 @@
   </head>
 
 <ul class="menu">
+  <li class="limenu"><a href="#list">List of implementations</a></li>
+  <li class="limenu"><a href="#tools">Tools</a></li>
   <li class="limenu"><a href="index.html">Theory</a></li>
 </ul>
 
 <body>
   <div class="article">
     <div class="anchor" id="list">
+      <img class="banner" src="img/bees_banner2.jpeg" alt="bees at hive">
       <h1>Implementations considered</h1>
-        <img src="img/bees_banner2.jpeg" alt="bees at hive">
         <h2>HiveMQ</h2>
           <ul>
             <li>Nonfree, price not specified as of yet</li>
@@ -36,7 +38,25 @@
           </ul>
           <b>TODO</b>
           <a href="https://www.eclipse.org/paho/clients/c/">web</a>
+        <h2>IBM client</h2>
+          <b>TODO</b>
+          <a href="http://www.ibm.com/support/knowledgecenter/SS9D84_1.0.0/com.ibm.mm.tc.doc/tc10150_.htm
+">web</a>
+      </div> <!-- class="anchor" id="list" -->
+      <div class="anchor" id="tools">
         <h1>Tools &amp; useful links</h1>
+        The Brokers found so far are all binaries that need to be run. The best way to control them from a program
+        seems to be to create a daemon.
+        <ul>
+          <li>
+            <a href="http://www.netzmafia.de/skripten/unix/linux-daemon-howto.html">General Linux daemon howto</a>
+          </li>
+          <li>
+            <a href="http://www.linuxquestions.org/questions/blog/rtmistler-575248/creating-a-daemon-to-launch-and-monitor-your-processes-35540/">
+            Creating a daemon to manage a process</a>
+          </li>
+        </ul>
+        Clients and debug:
         <ul>
           <li>
             <a href="http://wiki.neuromeka.net/index.php?title=Implementing_MQTT_Client_using_C%2B%2B_with_libmosquitto">
@@ -46,7 +66,7 @@
             <a href="http://www.hivemq.com/mqtt-toolbox">Debug tools listed by HiveMQ</a>
           </li>
         </ul>
-      </div> <!-- class="anchor" id="2min" -->
+      </div> <!-- class="anchor" id="tools" -->
     </div> <!-- class="article" -->
   </body>
 

@@ -56,6 +56,10 @@ th {
 }
 
 img {
+  width: 60%;
+}
+
+.banner {
   width: 100%;
 }
 
