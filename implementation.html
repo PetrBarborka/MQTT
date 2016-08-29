@@ -5,57 +5,90 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-
-<ul class="menu">
-  <li class="limenu"><a href="#list">List of implementations</a></li>
-  <li class="limenu"><a href="#tools">Tools</a></li>
-  <li class="limenu"><a href="index.html">Theory</a></li>
-</ul>
-
 <body>
+
+  <ul class="menu">
+    <li class="limenu"><a href="#brokers">Brokers</a></li>
+    <li class="limenu"><a href="#clients">Clients</a></li>
+    <li class="limenu"><a href="#tools">Tools</a></li>
+    <li class="limenu"><a href="index.html">Theory</a></li>
+  </ul>
+
   <div class="article">
-    <div class="anchor" id="list">
-      <img class="banner" src="img/bees_banner2.jpeg" alt="bees at hive">
-      <h1>Implementations considered</h1>
-        <h2>HiveMQ</h2>
+    <img class="banner" src="img/bees_banner2.jpeg" alt="bees at hive">
+    <br><br>
+    This page describes evaluation of existing client/server solutions for the MQTT protocol.
+    <div class="anchor" id="brokers">
+      <h1>Brokers</h1>
+      Brokers come as binary packages that, if run from code, should
+      be probably just put on their own process and left alone. It is
+      generally not expected for the Broker to need to be modified
+      to application specific needs, as they get addressed on the Client side.
+        <h2><a href="http://www.hivemq.com/">HiveMQ</a></h2>
           <ul>
             <li>Nonfree, price not specified as of yet</li>
-            <li>Binary broker, works</li>
+            <li>Windows/Unix</li>
+            <li>Binary broker, works, probed locally with mqtt-spy on OSX</li>
           </ul>
-          <b>TODO</b>
-          <a href="http://www.hivemq.com/">web</a>
-        <h2>Mosquitto</h2>
+        <h2><a href="https://mosquitto.org/">Mosquitto</a></h2>
           <ul>
-            <li>Free</li>
-            <li>Binary broker + client library</li>
+            <li>Free, open source, massive support</li>
+            <li>Windows/Unix/Anything that can build C++</li>
+            <li>Binary broker, works, probed locally with mqtt-spy on OSX</li>
           </ul>
-          <b>TODO</b>
-          <a href="https://mosquitto.org/">web</a>
-        <h2>Paho client</h2>
+        <h2><a href="https://github.com/emqtt/emqttd">Erlang MQTT daemon</a></h2>
           <ul>
-            <li>Free</li>
-            <li>Client library</li>
+            <li>Free, open source, commercial support</li>
+            <li>Windows/Unix/Anything that can build Erlang </li>
+            <li>Binary broker, works, probed locally with mqtt-spy on OSX</li>
           </ul>
-          <b>TODO</b>
-          <a href="https://www.eclipse.org/paho/clients/c/">web</a>
-        <h2>IBM client</h2>
-          <b>TODO</b>
-          <a href="http://www.ibm.com/support/knowledgecenter/SS9D84_1.0.0/com.ibm.mm.tc.doc/tc10150_.htm
-">web</a>
-      </div> <!-- class="anchor" id="list" -->
+        <h2><a href="https://vernemq.com/">Verne</a></h2>
+          <ul>
+            <li>Pretty much the same as emqttd</li>
+            <li>Free, open source, commercial support</li>
+            <li>Windows/Unix/Anything that can build Erlang </li>
+            <li>DIDN'T BUILD on OSX</li>
+          </ul>
+        <h2><a href="http://www.whitesoft.cz/reseni/telekomunikace/mqtt-broker">Whitesoft</a></h2>
+          Czech commercial broker, promises to send demo over email, looks like a 
+          poor mans HiveMQ. Meh.
+        <h2><a href="https://github.com/mcollina/mosca">Mosca</a></h2>
+          A broker on Node.js. Didn't try.
+        <h2>IBM</h2>
+          IBMs efforts on both client and server side either mutated into
+          cloud services, or merged into mosquitto.
+          <br><br>
+          <hr>
+          Seems like mosquitto is a clear winner - free, open-source, supported
+          and doing what all the others are doing.
+    </div>
+    <div class="anchor" id="clients">
+      <h1>Clients</h1>
+      Clients come as libraries that are expected to be implemented to suit
+      application specfic needs.
+      <h2><a href="http://www.eclipse.org/paho/clients/cpp">Paho</a></h2>
+          <ul>
+            <li>C, C++, C#, embeds(metal C?) and many other bindings</li>
+            <li>Free, opensource</li>
+          </ul>
+      <h2><a href="https://mosquitto.org/man/libmosquitto-3.html">Libmosquitto</a></h2>
+          <ul>
+            <li>C with C++ &and; Python bindings</li>
+            <li>Free, opensource</li>
+            <li>Appears to be only partially documented</li>
+            <li>powers Facebook messaging</li>
+          </ul>
+        <h2>IBM</h2>
+          merged into libmosquitto
+          <br><br>
+          <hr>
+          There are many other client libraries, but they are usually either
+          not fully developed (only QoS0 for example) or constrained in some other
+          way (targeting exclusively embed, written in weird language ... ). I will
+          give both Paho and libmosquitto a try.
+      </div> <!-- class="anchor" id="clients" -->
       <div class="anchor" id="tools">
         <h1>Tools &amp; useful links</h1>
-        The Brokers found so far are all binaries that need to be run. The best way to control them from a program
-        seems to be to create a daemon.
-        <ul>
-          <li>
-            <a href="http://www.netzmafia.de/skripten/unix/linux-daemon-howto.html">General Linux daemon howto</a>
-          </li>
-          <li>
-            <a href="http://www.linuxquestions.org/questions/blog/rtmistler-575248/creating-a-daemon-to-launch-and-monitor-your-processes-35540/">
-            Creating a daemon to manage a process</a>
-          </li>
-        </ul>
         Clients and debug:
         <ul>
           <li>
